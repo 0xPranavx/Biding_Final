@@ -297,13 +297,13 @@ const PlayerRender = () => {
                                     user.user_sold_flg === "Y" ||
                                     owner.owner_fund < bidCounter
                                 }
-                                className="bg-transparent  text-white py-2 px-3 rounded-lg font-semibold text-xs disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 hover:from-blue-700 hover:to-purple-700 active:scale-95"
+                                className=" text-white py-2 px-3 rounded-lg font-semibold text-xs disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 hover:from-blue-700 hover:to-purple-700 active:scale-95"
                             >
                                 {/* <div className="truncate text-base ">{owner.owner_name}</div> */}
                                     {/* <div className="text-[10px] opacity-80 truncate">
                                         ₹{owner.owner_fund.toLocaleString()}
                                     </div> */}
-                                    <Image src={`/${owner.owner_id}.jpeg`} className="bg-transparent" width = '60' height = '60' alt="broo"/>
+                                    <Image src={`/${owner.owner_id}.jpeg`} className="border rounded-full " width = '60' height = '60' alt="broo"/>
                             </button>
                         ))}
                     </div>

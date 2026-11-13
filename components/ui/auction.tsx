@@ -176,6 +176,8 @@ function Backdrop() {
         tone="#4338ff"
         dot="#7c7cff"
         className="auc-spin-rev absolute -right-56 -top-56 h-[28rem] w-[28rem] opacity-90 sm:-right-72 sm:-top-72 sm:h-[38rem] sm:w-[38rem]"
+        style={{}}
+
       />
 
       {/* cropped red mandala, bottom-right */}
@@ -183,6 +185,8 @@ function Backdrop() {
         tone="#ef3b3b"
         dot="#fb7185"
         className="auc-spin-rev absolute -bottom-56 -right-56 h-[28rem] w-[28rem] opacity-85 sm:-bottom-72 sm:-right-72 sm:h-[38rem] sm:w-[38rem]"
+        style={{}}
+
       />
     </div>
   );
@@ -253,13 +257,10 @@ type Owner = {
     owner_logo?: string;
 };
 
-export default function AuctionScreen({
-  player,
-  startingBid = 100,
-  increment = 500,
-  onBid,
-  onTeamClick,
-}) {
+export default function AuctionScreen() {
+
+  const startingBid=500
+   const increment=500
 
   const params = useParams();
         const userId = params.id;
@@ -335,12 +336,15 @@ export default function AuctionScreen({
   const amountFont = `min(6rem, calc((clamp(18rem, 36vw, 34rem) - 2rem) / ${formatINR(bid).length * 0.62}))`;
   // ticks in steps of a fifth of the increment (100 when the increment is 500)
   const shown = useCountUp(bid, 450, Math.max(1, increment / 5));
+  
 
   const placeBid = () => {
     const amount = bid + increment;
     setBid(amount);
     setBids((b) => b + 1);
-    onBid?.({ amount, bids: bids + 1 });};
+    };
+
+    
   
     if (loading) {
         return (
@@ -405,7 +409,7 @@ export default function AuctionScreen({
             </div>
             <img
               src={`https://qfgknkzzqdavctepawkf.supabase.co/storage/v1/object/public/users/${user.id}.png`}
-              alt={player.name}
+              alt={user.user_name}
               className="relative h-full w-full rounded-2xl object-cover object-top drop-shadow-[0_20px_28px_rgba(0,0,0,0.65)]"
             />
           </div>
@@ -456,7 +460,7 @@ export default function AuctionScreen({
             <button
               key={team.id}
               type="button"
-              onClick={() => onTeamClick?.(team)}
+              onClick={() => console.log("click")}
               aria-label={team.name}
               className="group flex flex-col items-center gap-1 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#e9b949]"
             >

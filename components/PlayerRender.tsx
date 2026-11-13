@@ -153,7 +153,7 @@ const PlayerRender = () => {
             }
 
             setUser(data);
-            setSoldFlg(data.user_name);
+            setSoldFlg(data.user_sold_flg);
         } catch (err) {
             console.error("Error fetching user:", err);
             setError("Failed to load player data");
@@ -208,71 +208,88 @@ const PlayerRender = () => {
  
 
             {/* Player Content */}
-            <div className="absolute flex justify-center items-center left-1/2 translate-x-[-50%] bottom-30 w-full z-10">
-                {/* Player Image */}
-                <img
-                    src={`https://qfgknkzzqdavctepawkf.supabase.co/storage/v1/object/public/users/${user.id}.png`}
-                    alt={user.user_name}
-                    className="absolute bottom-40 w-120 h-120 object-contain -mb-4 z-20"
-                />
-                
-                {/* Flash Effect */}
-                <img
-                    src={`/flash.png`}
-                    alt="Flash effect"
-                    className="absolute bottom-40 w-120 h-120 object-contain -mb-4 z-10"
-                />
-                
-                {/* Bid Box */}
-                <img
-                    src="/bid-box-2.png"
-                    alt="Bid Box"
-                    className="w-auto h-40 z-30 object-contain"
-                />
-                
-                {/* Player Name */}
-                <div className="text-white z-40 text-[32px] mb-14 capitalize font-bold absolute inset-0 flex items-center justify-center">
-                    {user.user_name.toUpperCase()}
-                </div>
-                <div className="text-white z-40 text-[30px] mt-22 capitalize font-bold absolute inset-0 flex items-center justify-center">
-                    {user.user_type.toUpperCase()}
-                </div>
-                
-                {/* Start Price */}
-                <div className="text-white z-40 text-[32px] mb-2 left-1/2 translate-x-[-40%] capitalize font-bold absolute inset-0 flex items-center justify-start">
-                    ${user.user_start_price.toLocaleString()}
-                </div>
-                
-                {/* Current Bid with Increment/Decrement */}
-                <div className="text-white z-40 text-[32px] mb-2 ml-10 left-1/2 translate-x-[25%] capitalize font-bold absolute inset-0 flex items-center justify-start">
-                    <div className="flex items-center gap-3">
-                        {/* Decrement Button */}
-                        <button
-                            onClick={() => decreaseBid(500)}
-                            disabled={bidCounter <= user.user_start_price}
-                            className="w-8 h-8 bg-black/60  opacity-25  text-white rounded-full flex items-center justify-center text-lg font-bold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-red-700 transition-colors"
-                        >
-                            -
-                        </button>
-                        
-                        {/* Current Bid Display */}
-                        <span>${bidCounter.toLocaleString()}</span>
-                        
-                        {/* Increment Button */}
-                        <button
-                            onClick={() => increaseBid(500)}
-                            className="w-8 h-8 bg-green-600 opacity-25 text-white rounded-full flex items-center justify-center text-lg font-bold hover:bg-green-700 transition-colors"
-                        >
-                            +
-                        </button>
-                    </div>
-                </div>
+            
+<div className="absolute bottom-40 left-0 w-full z-10 px-16">
+    <div className="flex items-center justify-between w-full">
 
-                {/* Status Badge */}
-                <div className="absolute left-1/2 bottom-[200px] translate-x-[-50%] translate-y-[50%] z-40 ">
-                    {soldFlg === 'Y' ? <img src="/sold.png" alt="Sold" className="w-80 object-contain" /> : ''}
-                </div>
+        {/* LEFT SIDE - Player Image & Details */}
+        <div className=" w-[550px] h-[550px] relative flex flex-col items-center justify-center w-1/2">
+ <div>
+    <img
+                src={`https://qfgknkzzqdavctepawkf.supabase.co/storage/v1/object/public/users/${user.id}.png`}
+                alt={user.user_name}
+                className="object-contain z-20"
+            />
+         {/* Sold Status */}
+            {soldFlg === 'Y' && (
+                <img
+                    src="/sold.png"
+                    alt="Sold"
+                    className="absolute inset-0 w-180 h-180 object-contain z-20 pointer-events-none mt-20"
+                />
+            )}
+ </div>
+            
+            {/* RIGHT SIDE - Bidding Counter */}
+        <div className="relative flex flex-col items-center mt-10 justify-center w-1/2">
+
+            {/* Current Bid */}
+            <div className="text-white text-[64px] font-extrabold flex items-center gap-8">
+
+                {/* Decrement */}
+                <button
+                    onClick={() => decreaseBid(500)}
+                    disabled={bidCounter <= user.user_start_price}
+                    className="w-16 h-16 bg-black/60 text-white rounded-full flex items-center justify-center text-4xl font-bold disabled:opacity-50 hover:bg-red-700 transition-colors"
+                >
+                    -
+                </button>
+
+                {/* Bid Amount */}
+                <span className="min-w-[280px] text-center">
+                    {bidCounter.toLocaleString()}
+                </span>
+
+                {/* Increment */}
+                <button
+                    onClick={() => increaseBid(500)}
+                    className="w-16 h-16 bg-green-600 text-white rounded-full flex items-center justify-center text-4xl font-bold hover:bg-green-700 transition-colors"
+                >
+                    +
+                </button>
+
             </div>
+
+            {/* Sold Status */}
+            {/* {soldFlg === 'Y' && (
+                <img
+                    src="/sold.png"
+                    alt="Sold"
+                    className="w-96 object-contain mt-8"
+                />
+            )} */}
+
+        </div>
+
+        </div>
+<div className="relative flex flex-col items-center justify-center w-1/2">
+{/* Player Name */}
+            <div className="text-white text-[58px] capitalize font-extrabold z-40 text-center">
+                {user.user_name.toUpperCase()}
+            </div>
+
+            {/* Player Type */}
+            <div className="text-white text-[36px] capitalize font-bold z-40 mt-2">
+                {user.user_type.toUpperCase()}
+            </div></div>
+        
+
+
+        
+
+    </div>
+</div>
+
 
             {/* Bidding Buttons */}
             <div className="fixed bottom-2 left-0 w-full px-3 z-50">

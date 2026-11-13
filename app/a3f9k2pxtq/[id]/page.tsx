@@ -6,22 +6,24 @@ export default function Page() {
   return (
         <div className="fixed inset-0 w-screen h-screen overflow-hidden  ">
             {/* Background image (lowest layer) */}
-            {/* <img
-                src="/background.png"
+            <img
+                src="/BG.jpeg"
                 alt="Background"
                 className="absolute inset-0 w-full h-full object-cover -z-50"
-            /> */}
+            />
 
-        <Image src="/background.png" alt="Background" fill className="object-cover -z-50" priority/>
+        {/* <Image src="/Bg.jpeg" alt="Background" fill className="object-cover -z-50" priority/> */}
+        {/* <Image src={"/fade_gradient.svg"} alt = 'broo' fill className="absolute inset-0 w-screen h-screen object-cover" />
+                <Image src={"/fade_gradient.svg"} alt = 'broo' fill className=" transform rotate-180 absolute inset-0 w-screen h-screen object-cover opacity-25" /> */}
 
             {/* Pattern overlay (above background) */}
-         <Image
+         {/* <Image
   src="/pattern.png"
   alt="Pattern Overlay"
   fill
   className="object-cover -z-30"
   priority
-/>
+/> */}
 
             {/* Header logos */}
             <div className="absolute top-2 left-0 gap-4 w-full h-fit flex justify-center items-center">
@@ -35,6 +37,7 @@ export default function Page() {
                     alt="Font Logo"
                     className="w-auto mt-4 h-30 object-cover z-20"
                 />
+                {/* <h1 className='text-6xl font-sans font-semibold'>ASHIRWAD PREMIER LEAGUE 2026</h1> */}
                 <img
                     src="/acl.png"
                     alt="ACL Logo"

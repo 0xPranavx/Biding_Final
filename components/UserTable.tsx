@@ -52,7 +52,7 @@ export const UserTable: React.FC<UserTableProps> = ({ users }) => {
   }
 
   const handleRowClick = (id: number) => {
-    router.push(`/a3f9k2pxtq/${id}`)
+    router.push(`/demo/${id}`)
   }
 
   return (

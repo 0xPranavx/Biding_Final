@@ -342,14 +342,15 @@ function SoldOverlay({ deal, playerName, playerImage, ownerName , ownerId , onCl
 
           {/* the deal */}
           <div className="auc-rise mt-[3.5vmin] flex flex-col items-center gap-2 [animation-delay:.8s] sm:items-start">
-            <p className="text-lg text-semibold sm:text-4xl">{playerName} SOLD TO </p>
+            <p className="text-lg font-bold sm:text-4xl">{playerName}</p>
+            <p className="text-lg text-semibold text-[#e9b949] sm:text-2xl">SOLD TO </p>
             <div className="flex items-center gap-4">
               <span className="block h-12 w-11 sm:h-[8vmin] sm:w-[7vmin]">
                 {/* <TeamLogo team={deal.team} /> */}
-                <Image src={`/${ownerId}.jpeg`} className="border rounded-full " width = '160' height = '160' alt="broo"/>
+                <img src={`/${ownerId}.jpeg`} className="border rounded-full " width = '200' height = '200' alt="broo"/>
               </span>
               <span
-                className="text-[#f4f1e8]"
+                className="text-[#f4f1e8] text-4xl"
                 style={{ fontFamily: BEBAS, fontSize: "clamp(2rem, 6vmin, 4rem)", letterSpacing: "0.04em" }}
               >
                {ownerName}

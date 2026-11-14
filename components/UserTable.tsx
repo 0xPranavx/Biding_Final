@@ -56,17 +56,17 @@ export const UserTable: React.FC<UserTableProps> = ({ users }) => {
   }
 
   return (
-    <Card className="w-full border-0 bg-white shadow-lg">
+    <Card className="w-full border-0 bg-black shadow-lg">
       <CardHeader className="space-y-3 pb-6">
-        <CardTitle className="text-2xl font-bold text-black">Players Auction</CardTitle>
-        <CardDescription className="text-base text-gray-600">
+        <CardTitle className="text-2xl font-bold text-white">Players Auction</CardTitle>
+        <CardDescription className="text-base text-white">
           {users.length} player{users.length !== 1 ? "s" : ""} in the system
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-6">
         <div className="rounded-lg border border-gray-200 overflow-hidden">
           <Table>
-            <TableHeader className="bg-gray-50 border-b border-gray-200">
+            <TableHeader className="bg-gray-50  border-b border-gray-200">
               <TableRow>
                 <TableHead className="w-[250px] font-semibold text-black text-sm py-4">Player</TableHead>
                 <TableHead className="font-semibold text-black text-sm py-4">Type</TableHead>
@@ -91,7 +91,7 @@ export const UserTable: React.FC<UserTableProps> = ({ users }) => {
                     <TableRow
                       key={user.id}
                       onClick={() => handleRowClick(user.id)}
-                      className="border-b border-gray-100 hover:bg-gray-50 transition-colors cursor-pointer"
+                      className="border-b border-gray-100 hover:bg-grey-50 transition-colors cursor-pointer"
                     >
                       {/* Player Info */}
                       <TableCell className="py-4">
@@ -107,7 +107,7 @@ export const UserTable: React.FC<UserTableProps> = ({ users }) => {
                             </AvatarFallback>
                           </Avatar>
                           <div className="flex flex-col gap-1">
-                            <span className="font-semibold text-sm text-black">{user.user_name}</span>
+                            <span className="font-semibold text-sm text-white">{user.user_name}</span>
                             <span className="text-xs text-gray-500">ID: {user.id}</span>
                           </div>
                         </div>
@@ -115,18 +115,18 @@ export const UserTable: React.FC<UserTableProps> = ({ users }) => {
 
                       {/* User Type */}
                       <TableCell className="py-4">
-                        <Badge variant="outline" className="capitalize border-gray-300 text-black bg-white">
+                        <Badge variant="outline" className="capitalize border-gray-300 text-white bg-black">
                           {user.user_type}
                         </Badge>
                       </TableCell>
 
                       {/* Start Price */}
-                      <TableCell className="text-right font-medium text-black py-4">
+                      <TableCell className="text-right font-medium text-white py-4">
                         {formatCurrency(user.user_start_price)}
                       </TableCell>
 
                       {/* Current Bid */}
-                      <TableCell className="text-right font-semibold text-black py-4">
+                      <TableCell className="text-right font-semibold text-white py-4">
                         {formatCurrency(user.user_bid_price)}
                       </TableCell>
 
@@ -137,7 +137,7 @@ export const UserTable: React.FC<UserTableProps> = ({ users }) => {
                             variant="outline"
                             className={`text-xs border-2 ${
                               priceDiff.isPositive
-                                ? "border-black text-black bg-white"
+                                ? "border-black text-white bg-black"
                                 : "border-gray-400 text-gray-600 bg-gray-50"
                             }`}
                           >

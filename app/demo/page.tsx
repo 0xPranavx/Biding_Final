@@ -48,7 +48,7 @@ export default function UsersPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="text-center space-y-4">
           <Loader className="w-8 h-8 animate-spin text-black mx-auto" />
           <p className="text-gray-600 font-medium">Loading players...</p>
@@ -58,7 +58,7 @@ export default function UsersPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-black  py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto space-y-12">
         {/* Header */}
         <div className="text-center space-y-6">
@@ -68,8 +68,8 @@ export default function UsersPage() {
             </div>
           </div>
           <div className="space-y-3">
-            <h1 className="text-5xl font-bold text-black tracking-tight">Players Management</h1>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            <h1 className="text-5xl font-bold text-white tracking-tight">Players Management</h1>
+            <p className="text-lg text-white max-w-2xl mx-auto leading-relaxed">
               Browse and manage all players in the system. Use the search below to find specific players.
             </p>
           </div>

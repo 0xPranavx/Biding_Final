@@ -28,11 +28,11 @@ export default function Home() {
           {/* <Image src={"/acl.png"} width={100} alt="broo" height={50}/> */}
           
      
-        <CardTitle className="md:text-6xl text-6xl">Ashirwad Champions League</CardTitle>
+        <CardTitle className="md:text-6xl text-6xl">Ashirwad Premier League</CardTitle>
         <CardDescription className="md:text-lg ">Special Partner <span className="text-blue-400 text-semibold">AZMM</span></CardDescription>
       </CardHeader>
       <CardContent className=" ">
-      Welcome to one of the most premium cricket auctions, Ashirwad Champions League 2025.
+      Welcome to one of the most premium cricket auctions, Ashirwad Premier League 2026.
 Discover top players, passionate owners, and the thrill of every bid by clicking on the links below.
       </CardContent>
       <CardFooter className="flex justify-start ">

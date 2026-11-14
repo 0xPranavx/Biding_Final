@@ -342,7 +342,7 @@ function SoldOverlay({ deal, playerName, playerImage, ownerName , ownerId , onCl
 
           {/* the deal */}
           <div className="auc-rise mt-[3.5vmin] flex flex-col items-center gap-2 [animation-delay:.8s] sm:items-start">
-            <p className="text-lg text-semibold sm:text-4xl">{playerName} goes to </p>
+            <p className="text-lg text-semibold sm:text-4xl">{playerName} SOLD TO </p>
             <div className="flex items-center gap-4">
               <span className="block h-12 w-11 sm:h-[8vmin] sm:w-[7vmin]">
                 {/* <TeamLogo team={deal.team} /> */}
@@ -753,7 +753,7 @@ export default function AuctionScreen({
                   sold && !isWinner ? "opacity-30" : ""
                 } ${sold ? "cursor-default" : ""}`}
               >
-                 <Image src={`/${owner.owner_id}.jpeg`} className="border rounded-full " width = '60' height = '60' alt="broo"/>
+                 <img src={`/${owner.owner_id}.jpeg`} className="border rounded-full " width = '60' height = '60' alt="broo"/>
               </button>
             );
           })}
